@@ -21,4 +21,36 @@ Note: technically you can just use a laptop and connect the usb adapter to get t
 
 ___________________________________________________________
 
-To get started I first had to
+To get started I first had to figure out how to perform the same functions the WiFi pineapple wanted to carry out.
+
+This led me down a rabbit hole of different adapters not being able to support injection while most supported monitoring. I found a useful github repo called the [Plug and Play List](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapters_that_are_supported_with_Linux_in-kernel_drivers.md) which tested popular adapters for both.
+
+Note: you need two distinct attennas to support monitoring and injection at the same time
+
+_________________________________
+
+
+Now that I had the adapter I needed the open source software. Of course, the [aircrack-ng tool suite]() allows for most attacks to be done manually, but I wanted a point-and-click open source software similar to how I imagined the WiFi Pineapple would be.
+
+After comparing many tools like WiFite and the WiFiPumpkin3, I settled on EAPHammer. According to my research, this open source script seemed to be the most recognized among actual WiFi pentesters.
+
+
+_________________________________
+
+
+Before going into the weeds of EAPHammer, I would like to go over some essential aircrack-ng tool suite commands I used in order to successfully test the wireless network I was targeting.
+
+When you connect a USB wifi adapter and successfully install all needed dependencies, the (in my case Linux) system will assign a wlan interface to it. Usually wlan1 if you have an onboard wifi card on a Linux system. 
+
+Knowing this information the first command is <sudo airmon-ng start <wireless interface name>>.
+
+This command puts the interface assigned to your USB WiFi adapter into monitor mode. 
+
+Now that your interface is in monitor mode, with the right commands usually using the commands associated with airodump-ng, this will allow you to view all APs in your range, what channels they are communicating over, the MAC address (or BSSID) of the AP, and the MAC Addresses of each client connecting to the AP.
+
+
+For example, to view all APs in your range use the command <sudo airodump-ng <wireless interface name>>
+
+_______________________________________________________
+
+
