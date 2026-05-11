@@ -42,14 +42,14 @@ Before going into the weeds of EAPHammer, I would like to go over some essential
 
 When you connect a USB wifi adapter and successfully install all needed dependencies, the (in my case Linux) system will assign a wlan interface to it. Usually wlan1 if you have an onboard wifi card on a Linux system. 
 
-Knowing this information the first command is <sudo airmon-ng start <wireless interface name>>.
+Knowing this information the first command is <sudo airmon-ng start wireless interface name>.
 
 This command puts the interface assigned to your USB WiFi adapter into monitor mode. 
 
 Now that your interface is in monitor mode, with the right commands usually using the commands associated with airodump-ng, this will allow you to view all APs in your range, what channels they are communicating over, the MAC address (or BSSID) of the AP, and the MAC Addresses of each client connecting to the AP.
 
 
-For example, to view all APs in your range use the command <sudo airodump-ng <wireless interface name>>
+For example, to view all APs in your range use the command <sudo airodump-ng wireless interface name>
 
 _______________________________________________________
 
