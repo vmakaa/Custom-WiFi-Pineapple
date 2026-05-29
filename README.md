@@ -59,4 +59,5 @@ Now there are many types of attacks you can perform using devices like these, bu
 
 _______________________________________________________
 
-#ARP SPOOFING
+# ARP SPOOFING
+arp spoofing is
